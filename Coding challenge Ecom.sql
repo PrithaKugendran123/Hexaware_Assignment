@@ -117,7 +117,8 @@ select*From cart
 select*from orders
 select*from order_items
 
---Update refrigerator product price to 800.
+--Update refrigerator product price to 800.
+
 update Products set price=800 where name ='Refrigerator'
 select*from Products
 
@@ -132,14 +133,17 @@ select*from cart;
 select * from Products where price < 100
 
 
---Find Products with Stock Quantity Greater Than 5.select * from Products where stockQuantity > 5
+--Find Products with Stock Quantity Greater Than 5.
+
+select * from Products where stockQuantity > 5
+
 
 --Retrieve Orders with Total Amount Between $500 and $1000
 
 select * from orders where total_price between 500 and 1000
 
 
---Find Products which name end with letter ‘r’.
+--Find Products which name end with letter â€˜râ€™.
 
 select* from Products where name like '%r'
 
@@ -187,7 +191,8 @@ left join orders o on c.customer_id = o.customer_id
 group by c.customer_id,c.name;
 
 
--- Find the Maximum Order Amount for Each Customer.
+-- Find the Maximum Order Amount for Each Customer.
+
 select c.name, max(o.total_price) as maximum_Order_Amount from Customers c
 left join orders o on  c.Customer_id=o.customer_id
 group by c.name
@@ -218,7 +223,8 @@ group by p.name,p.price
 
 
 
-  --Subquery to Find Products with Low Stock.
+  --Subquery to Find Products with Low Stock.
+
 select * from products
 where stockQuantity < (select avg(stockQuantity)from  products);
 
